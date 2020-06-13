@@ -1,50 +1,49 @@
 <!DOCTYPE html>
 <html>
   <head>
-		<title>弹幕</title>
-		<meta name=viewport content="width=device-width,height=device-height,initial-scale=1,maximum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
-		<script src="flexible.js"></script>
-		<link rel="stylesheet" type="text/css" href="index.css" />
+    <title>弹幕</title>
+    <meta
+      name="viewport"
+      content="width=device-width,height=device-height,initial-scale=1,maximum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"
+    />
+    <script src="flexible.js"></script>
+    <link rel="stylesheet" type="text/css" href="index.css" />
   </head>
   <body>
-
-		<item class="wrapper" id="wrapper">
-			<div class="item" >hello，树先生！！</div>
-			<div class="item" >X Man!!</div>
-			<div class="item" >蜘蛛侠</div>
-			<div class="item" >键盘侠</div>
-			<div class="item" >KeyboradMan!!</div>
-		</item>
-    
+    <item class="wrapper" id="wrapper">
+      <div class="item">hello，树先生！！</div>
+      <div class="item">X Man!!</div>
+      <div class="item">蜘蛛侠</div>
+      <div class="item">键盘侠</div>
+      <div class="item">KeyboradMan!!</div>
+    </item>
 
     <script type="text/javascript">
-    
-			const wrapper = document.getElementById('wrapper');
-			console.log('wrapper..',wrapper.children);
+      const wrapper = document.getElementById('wrapper');
+      console.log('wrapper..', wrapper.children);
 
-			function start(){
-				for(let i = 0 ;i<wrapper.children.length;i++){
-						const item = wrapper.children[i];
-						move(item);
-				}
-			}
+      function start() {
+        for (let i = 0; i < wrapper.children.length; i++) {
+          const item = wrapper.children[i];
+          move(item);
+        }
+      }
 
-			function move(ele){
-				let time = Math.random()*5000;
-				setTimeout(()=>{ 
-					ele.classList.add('move');
-				},time)
-			
-			}
+      function move(ele) {
+        let time = Math.random() * 5000;
+        setTimeout(() => {
+          ele.classList.add('move');
+        }, time);
+      }
       setTimeout(() => {
-				start();
+        start();
         wrapper.addEventListener(
           'transitionend',
           (e) => {
-						console.log('transitionend..',e);
-						console.log('classList..',e.target.classList);
-						 e.target.classList.remove('move');
-						 move(e.target);
+            console.log('transitionend..', e);
+            console.log('classList..', e.target.classList);
+            e.target.classList.remove('move');
+            move(e.target);
           },
           false
         );
